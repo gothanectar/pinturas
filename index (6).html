@@ -1,0 +1,110 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nicholas Pinturas - Pintura em Prédios e Sobrados</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+    .hero { background-image: url('https://images.unsplash.com/photo-1500932334442-8761ee4810a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; }
+    @media (max-width: 640px) {
+      .hero { background-image: url('https://images.unsplash.com/photo-1500932334442-8761ee4810a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=640&q=80'); }
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Cabeçalho -->
+  <header class="bg-blue-900 text-white py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Nicholas Pinturas</h1>
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="#sobre" class="hover:text-orange-400">Sobre</a></li>
+          <li><a href="#contato" class="hover:text-orange-400">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <section class="hero py-20 text-center text-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold mb-4">Pintura Profissional em Prédios e Sobrados</h2>
+      <p class="text-lg mb-6">Especialista em locais difíceis e perigosos, com qualidade e segurança.</p>
+      <a href="https://wa.me/5541987652432" target="_blank" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600">Fale Conosco no WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Sobre Nós</h2>
+      <p class="text-lg text-gray-700 text-center max-w-2xl mx-auto">
+        Nicholas de Jesus Nunes é especialista em pintura de prédios e sobrados, com expertise em locais de difícil acesso e alto risco. Com anos de experiência, garantimos um serviço de alta qualidade, com segurança e acabamento impecável. Atendemos em Colombo e região, trazendo vida e cor aos seus projetos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-8">Entre em Contato</h2>
+      <p class="text-lg text-gray-700 mb-4">Rua Sete de Setembro, 135, Canguiri, Colombo - PR</p>
+      <p class="text-lg text-gray-700 mb-4">WhatsApp: (41) 98765-2432</p>
+      <a href="https://wa.me/5541987652432" target="_blank" class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600">Enviar Mensagem</a>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-blue-900 text-white py-4">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2025 Nicholas Pinturas. Todos os direitos reservados.</p>
+      <p class="mt-2">
+        <a href="#sobre" class="hover:text-orange-400">Sobre</a> | 
+        <a href="#contato" class="hover:text-orange-400">Contato</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
