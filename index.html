@@ -57,6 +57,14 @@
   <link rel="canonical" href="https://gothanectar.github.io/pinturas/">
   <link rel="alternate" hreflang="pt-BR" href="https://gothanectar.github.io/pinturas/">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function abrirWhatsApp(mensagem) {
+      const numero = "5541987652432";
+      const texto = encodeURIComponent(mensagem);
+      const url = `https://wa.me/${numero}?text=${texto}`;
+      window.open(url, '_blank');
+    }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
@@ -128,7 +136,7 @@
         <a href="#servicos" class="bg-orange-500 text-white px-8 py-4 rounded-full hover:bg-orange-600 transition-all transform hover:scale-105">
           Ver Serviços
         </a>
-        <a href="https://wa.me/5541987652432" target="_blank" class="bg-green-500 text-white px-8 py-4 rounded-full hover:bg-green-600 transition-all transform hover:scale-105">
+        <a href="#" onclick="abrirWhatsApp('Olá! Gostaria de fazer um orçamento de pintura profissional. Me conte suas necessidades e como posso ajudar você.')" class="bg-green-500 text-white px-8 py-4 rounded-full hover:bg-green-600 transition-all transform hover:scale-105">
           <i class="fab fa-whatsapp text-white text-xl mr-2"></i>Fale Conosco
         </a>
       </div>
@@ -258,7 +266,7 @@
           <p class="text-xl">WhatsApp: (41) 98765-2432</p>
         </div>
         <div class="flex flex-col md:flex-row justify-center gap-4">
-          <a href="https://wa.me/5541987652432" target="_blank" class="bg-green-500 text-white px-8 py-4 rounded-full hover:bg-green-600 transition-all transform hover:scale-105">
+          <a href="#" onclick="abrirWhatsApp('Olá! Gostaria de fazer um orçamento de pintura profissional. Me conte suas necessidades e como posso ajudar você.')" class="bg-green-500 text-white px-8 py-4 rounded-full hover:bg-green-600 transition-all transform hover:scale-105">
             <i class="fab fa-whatsapp text-white text-xl mr-2"></i>Enviar Mensagem
           </a>
           <a href="#" class="bg-blue-900 text-white px-8 py-4 rounded-full hover:bg-blue-800 transition-all transform hover:scale-105">
