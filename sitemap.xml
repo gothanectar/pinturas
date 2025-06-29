@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gothanectar.github.io/pinturas/</loc>
+<<<<<<< HEAD
     <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -13,11 +14,21 @@
   <url>
     <loc>https://gothanectar.github.io/pinturas/sobre</loc>
     <lastmod>2025-06-29</lastmod>
+=======
+    <lastmod>2025-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://gothanectar.github.io/pinturas/sobre</loc>
+    <lastmod>2025-06-16</lastmod>
+>>>>>>> 0ef05e2572da11daee00ce10ebbb34b11a28ee88
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://gothanectar.github.io/pinturas/servicos</loc>
+<<<<<<< HEAD
     <lastmod>2025-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -51,4 +62,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+=======
+    <lastmod>2025-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gothanectar.github.io/pinturas/contato</loc>
+    <lastmod>2025-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+>>>>>>> 0ef05e2572da11daee00ce10ebbb34b11a28ee88
 </urlset>

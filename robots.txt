@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+<<<<<<< HEAD
 Disallow: /admin/
 Disallow: /wp-admin/
 Disallow: /wp-content/
@@ -41,3 +42,6 @@ Allow: /campos-do-jordao/
 Allow: /servicos/
 Allow: /sobre/
 Allow: /contato/
+=======
+Sitemap: https://gothanectar.github.io/pinturas/sitemap.xml
+>>>>>>> 0ef05e2572da11daee00ce10ebbb34b11a28ee88
