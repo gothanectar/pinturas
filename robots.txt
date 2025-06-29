@@ -1,0 +1,43 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+
+# Prioridade para páginas locais
+Host: gothanectar.github.io
+Crawl-delay: 10
+
+# Googlebot específico
+User-agent: Googlebot
+Allow: /
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+
+# Bingbot específico
+User-agent: Bingbot
+Allow: /
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+
+# Sitemap
+Sitemap: https://gothanectar.github.io/pinturas/sitemap.xml
+
+# Links para páginas locais
+Allow: /curitiba/
+Allow: /colombo/
+Allow: /campos-do-jordao/
+
+# Links para serviços
+Allow: /servicos/
+Allow: /sobre/
+Allow: /contato/
